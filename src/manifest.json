@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "shun",
+  "version": "1.0.0",
+  "description": "Capture snapshot of the current page and copy it as YAML",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "shun@example.com",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": ["activeTab", "clipboardWrite"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "48": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/contentScript.ts"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Take Snapshot"
+  },
+  "{{chrome}}.background": {
+    "service_worker": "src/background.ts"
+  },
+  "{{firefox}}.background": {
+    "scripts": ["src/background.ts"]
+  },
+  "commands": {
+    "snapshot": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "Take snapshot"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "shun",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "vite build",
+    "build-firefox": "TARGET=firefox vite build",
+    "build-chrome": "TARGET=chrome vite build",
+    "dev": "vite build --watch",
+    "dev-firefox": "TARGET=firefox vite build --watch",
+    "dev-chrome": "TARGET=chrome vite build --watch"
+  },
+  "keywords": [],
+  "author": "goncharom",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/webextension-polyfill": "^0.12.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-web-extension": "^4.4.3"
+  }
+}
